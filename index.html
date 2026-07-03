@@ -5,110 +5,106 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raul Hatos — Développeur web full-stack</title>
 <meta name="description" content="Raul Hatos, développeur web autodidacte. Trois produits conçus, codés et déployés seul : une application de détection de prix, une boutique de cours en ligne et un site vitrine client.">
-<meta name="theme-color" content="#0b1018">
+<meta name="theme-color" content="#f7f2ea">
 <meta property="og:title" content="Raul Hatos — Développeur web full-stack">
 <meta property="og:description" content="Trois produits conçus, codés et déployés seul. Python, FastAPI, Next.js, Stripe.">
 <meta property="og:type" content="website">
 <style>
   :root{
-    --bg:#0b1018; --panel:#141d2b; --panel2:#182233; --line:#263447;
-    --txt:#eaf1f9; --mut:#93a6bd;
-    --coral:#ff6b4a; --pink:#ff4d8d; --amber:#ffb454; --blue:#4ea1ff;
-    --green:#37d19b; --violet:#a97bff;
-    --grad:linear-gradient(100deg,#ff6b4a,#ff4d8d 55%,#a97bff);
+    --bg:#f7f2ea; --card:#ffffff; --soft:#fbf7f0; --line:#ebe1d3;
+    --txt:#2c2521; --mut:#8a7d6f; --soft-txt:#5f544a;
+    --coral:#ef5f3c; --terra:#e0472a; --amber:#e0902b; --teal:#2f9d86; --plum:#a2588a;
+    --grad:linear-gradient(100deg,#ef5f3c,#e0472a 60%,#e0902b);
+    --shadow:0 18px 44px -22px rgba(120,84,52,.28);
+    --serif:Georgia,"Iowan Old Style",Palatino,"Times New Roman",serif;
     --radius:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg); color:var(--txt); line-height:1.6;
+    background:var(--bg); color:var(--txt); line-height:1.65;
     -webkit-font-smoothing:antialiased; position:relative; overflow-x:hidden;
   }
-  /* Halos d'ambiance colorés */
+  /* Halos crème/pêche très doux */
   body:before,body:after{content:"";position:fixed;z-index:0;pointer-events:none;
-    border-radius:50%;filter:blur(90px);opacity:.55}
-  body:before{width:620px;height:620px;top:-220px;left:-160px;
-    background:radial-gradient(circle,rgba(255,107,74,.55),transparent 70%)}
-  body:after{width:680px;height:680px;top:-120px;right:-220px;
-    background:radial-gradient(circle,rgba(78,161,255,.45),transparent 70%)}
+    border-radius:50%;filter:blur(100px)}
+  body:before{width:560px;height:560px;top:-200px;left:-140px;
+    background:radial-gradient(circle,rgba(239,95,60,.16),transparent 70%)}
+  body:after{width:620px;height:620px;top:-160px;right:-200px;
+    background:radial-gradient(circle,rgba(224,144,43,.15),transparent 70%)}
   main,header,footer{position:relative;z-index:1}
 
   a{color:inherit;text-decoration:none}
   .wrap{max-width:980px;margin:0 auto;padding:0 24px}
-  .mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
   .grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
   /* Header */
-  header{position:sticky;top:0;z-index:20;background:rgba(11,16,24,.72);
+  header{position:sticky;top:0;z-index:20;background:rgba(247,242,234,.78);
     backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{font-weight:800;letter-spacing:-.02em;font-size:18px}
-  .brand span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .brand{font-family:var(--serif);font-weight:700;letter-spacing:-.01em;font-size:21px}
+  .brand span{color:var(--coral)}
   .nav a.link{color:var(--mut);font-size:14px;margin-left:24px;transition:.15s}
   .nav a.link:hover{color:var(--txt)}
   @media(max-width:560px){.nav a.link{display:none}}
 
   /* Hero */
-  .hero{padding:92px 0 66px}
-  .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
-  .hero h1{font-size:clamp(36px,6.2vw,62px);line-height:1.04;letter-spacing:-.03em;
-    margin:18px 0 20px;font-weight:800}
-  .hero p{color:var(--mut);font-size:clamp(16px,2.4vw,20px);max-width:660px}
+  .hero{padding:96px 0 68px}
+  .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--coral)}
+  .hero h1{font-family:var(--serif);font-weight:700;
+    font-size:clamp(38px,6.4vw,66px);line-height:1.05;letter-spacing:-.015em;margin:18px 0 22px}
+  .hero p{color:var(--soft-txt);font-size:clamp(16px,2.4vw,20px);max-width:660px}
   .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
   .btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:700;font-size:15px;transition:.18s}
-  .btn-p{background:var(--grad);color:#0b1018;box-shadow:0 10px 30px -8px rgba(255,77,141,.5)}
-  .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 40px -8px rgba(255,77,141,.6)}
-  .btn-g{border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.02)}
-  .btn-g:hover{border-color:var(--blue);color:#fff}
+  .btn-p{background:var(--grad);color:#fff;box-shadow:0 12px 26px -10px rgba(224,71,42,.55)}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 34px -10px rgba(224,71,42,.6)}
+  .btn-g{border:1px solid var(--line);color:var(--txt);background:var(--card)}
+  .btn-g:hover{border-color:var(--coral);color:var(--coral)}
 
   section{padding:56px 0}
-  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;font-weight:700}
-  h2.title{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin-bottom:30px;font-weight:800;
-    display:inline-block}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;font-weight:700;color:var(--coral)}
+  h2.title{font-family:var(--serif);font-size:clamp(28px,4.4vw,40px);letter-spacing:-.01em;
+    margin-bottom:30px;font-weight:700;display:inline-block}
   h2.title:after{content:"";display:block;width:64px;height:4px;border-radius:4px;margin-top:12px;background:var(--grad)}
 
   /* Projects */
-  .proj{position:relative;background:linear-gradient(180deg,var(--panel2),var(--panel));
-    border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-bottom:22px;
-    transition:.22s;overflow:hidden}
-  .proj:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  .proj{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;margin-bottom:22px;transition:.22s;box-shadow:var(--shadow);overflow:hidden}
+  .proj:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
     background:var(--grad);opacity:0;transition:.22s}
-  .proj:hover{transform:translateY(-3px);border-color:#31465e;
-    box-shadow:0 24px 60px -24px rgba(255,77,141,.35)}
+  .proj:hover{transform:translateY(-3px);box-shadow:0 26px 60px -24px rgba(120,84,52,.4)}
   .proj:hover:before{opacity:1}
   .proj .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .proj h3{font-size:22px;letter-spacing:-.01em}
+  .proj h3{font-family:var(--serif);font-size:23px;letter-spacing:-.01em;font-weight:700}
   .proj .role{color:var(--mut);font-size:13px}
-  .proj .pitch{color:var(--txt);margin:12px 0 10px}
+  .proj .pitch{color:var(--soft-txt);margin:12px 0 10px}
   .proj ul{list-style:none;margin:8px 0 16px}
-  .proj li{color:var(--mut);font-size:15px;padding-left:22px;position:relative;margin:5px 0}
-  .proj li:before{content:"▹";position:absolute;left:0;font-weight:700;
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .proj li{color:var(--soft-txt);font-size:15px;padding-left:22px;position:relative;margin:5px 0}
+  .proj li:before{content:"▹";position:absolute;left:0;font-weight:700;color:var(--coral)}
   .tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px}
-  .tag{font-size:12px;color:#cfe0f2;background:rgba(78,161,255,.09);
-    border:1px solid rgba(78,161,255,.22);border-radius:999px;padding:5px 12px}
-  .proj .go{color:#fff;font-size:14px;font-weight:700;margin-top:16px;display:inline-block;
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .proj .go:hover{filter:brightness(1.15)}
+  .tag{font-size:12px;color:var(--soft-txt);background:var(--soft);
+    border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+  .proj .go{color:var(--coral);font-size:14px;font-weight:700;margin-top:16px;display:inline-block}
+  .proj .go:hover{color:var(--terra)}
 
-  /* Skills — chaque carte sa couleur */
+  /* Skills — chaque carte sa couleur douce */
   .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-  .sk{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
-    transition:.2s}
-  .sk:hover{transform:translateY(-2px);border-color:#31465e}
-  .sk h4{font-size:14px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;font-weight:800}
-  .sk p{color:var(--mut);font-size:15px}
+  .sk{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+    box-shadow:var(--shadow);transition:.2s}
+  .sk:hover{transform:translateY(-2px)}
+  .sk h4{font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px;font-weight:800}
+  .sk p{color:var(--soft-txt);font-size:15px}
   .sk:nth-child(1){border-top:3px solid var(--coral)}  .sk:nth-child(1) h4{color:var(--coral)}
-  .sk:nth-child(2){border-top:3px solid var(--blue)}   .sk:nth-child(2) h4{color:var(--blue)}
-  .sk:nth-child(3){border-top:3px solid var(--green)}  .sk:nth-child(3) h4{color:var(--green)}
-  .sk:nth-child(4){border-top:3px solid var(--violet)} .sk:nth-child(4) h4{color:var(--violet)}
+  .sk:nth-child(2){border-top:3px solid var(--amber)}  .sk:nth-child(2) h4{color:var(--amber)}
+  .sk:nth-child(3){border-top:3px solid var(--teal)}   .sk:nth-child(3) h4{color:var(--teal)}
+  .sk:nth-child(4){border-top:3px solid var(--plum)}   .sk:nth-child(4) h4{color:var(--plum)}
 
-  /* About + contact */
-  .about-card{background:linear-gradient(120deg,rgba(255,107,74,.10),rgba(169,123,255,.10));
-    border:1px solid var(--line);border-radius:22px;padding:34px}
-  .about p{color:#c8d6e6;max-width:700px;margin-bottom:14px}
-  .about strong{color:#fff}
+  /* About */
+  .about-card{background:linear-gradient(120deg,rgba(239,95,60,.09),rgba(224,144,43,.10));
+    border:1px solid var(--line);border-radius:22px;padding:34px;box-shadow:var(--shadow)}
+  .about p{color:var(--soft-txt);max-width:700px;margin-bottom:14px}
+  .about strong{color:var(--txt)}
   .contact-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
 
   footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-size:14px}
@@ -131,7 +127,7 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow grad-txt">Développeur web full-stack · autodidacte</div>
+      <div class="eyebrow">Développeur web full-stack · autodidacte</div>
       <h1>Je conçois et je mets en ligne<br>des <span class="grad-txt">produits qui marchent.</span></h1>
       <p>22 ans, développeur autodidacte. Trois produits conçus, codés et déployés seul : une application de détection de prix de vols, une boutique de cours vidéo avec paiement, et un site vitrine client. Ouvert aux opportunités en développement web.</p>
       <div class="cta">
@@ -143,7 +139,7 @@
 
   <section id="projets">
     <div class="wrap">
-      <div class="kicker grad-txt">Réalisations</div>
+      <div class="kicker">Réalisations</div>
       <h2 class="title">Trois projets, de l'idée à la production</h2>
 
       <div class="proj">
@@ -207,7 +203,7 @@
 
   <section id="competences">
     <div class="wrap">
-      <div class="kicker grad-txt">Ce que je sais faire</div>
+      <div class="kicker">Ce que je sais faire</div>
       <h2 class="title">Compétences</h2>
       <div class="skills">
         <div class="sk"><h4>Frontend</h4><p>Next.js / React, TypeScript, Tailwind, sites statiques performants, responsive, SEO technique.</p></div>
@@ -220,7 +216,7 @@
 
   <section id="contact" class="about">
     <div class="wrap">
-      <div class="kicker grad-txt">À propos</div>
+      <div class="kicker">À propos</div>
       <h2 class="title">Autodidacte, et je livre</h2>
       <div class="about-card">
         <p>Je n'ai pas de diplôme : j'ai appris en construisant. Ma preuve, ce sont des <strong>produits réels, en ligne et fonctionnels</strong>, dont un e-commerce avec paiement. Je cherche à <strong>rejoindre une équipe</strong> pour progresser et me confronter à des projets à plus grande échelle.</p>
@@ -236,7 +232,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Raul Hatos</span>
-    <span class="mono">Conçu et codé par moi-même.</span>
+    <span>Conçu et codé par moi-même.</span>
   </div>
 </footer>
 
